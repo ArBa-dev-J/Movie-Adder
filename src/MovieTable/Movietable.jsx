@@ -1,3 +1,5 @@
+import x from "../assets/close.png";
+
 function MovieTable({ movies }) {
   return (
     <>
@@ -8,7 +10,7 @@ function MovieTable({ movies }) {
         <div className="text-center">
           <p>Genre</p>
           <p>
-            {movies.genre[0]} {movies.genre[1]} {movies.genre[2]} 
+            {movies.genre[0]} {movies.genre[1]} {movies.genre[2]}
             {movies.genre[3]} {movies.genre[4]} {movies.genre[5]}
           </p>
         </div>
@@ -20,6 +22,10 @@ function MovieTable({ movies }) {
           <p>Rating</p>
           <p>{movies.Rating}</p>
         </div>
+        {/* DELETE BUTTON */}
+        <button type="button" className="relative left-[160px]">
+          <img src={x} alt="x" />
+        </button>
       </div>
     </>
   );
