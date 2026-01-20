@@ -1,7 +1,7 @@
 import x from "../assets/close.png";
 import rewrite from "../assets/rewrite.png";
 
-function MovieTable({ movies, fetchData }) {
+function MovieTable({ movies, fetchData, isOpen }) {
   // DELETE
   const deleteData = async (id) => {
     try {
@@ -53,7 +53,7 @@ function MovieTable({ movies, fetchData }) {
         >
           <img src={x} alt="x" />
         </button>
-        <button type="button" className="relative left-[120px] bottom-[24px]"><img src={rewrite} alt="rewrite" /></button>
+        <button type="button" onClick={() => isOpen()} className="relative left-[120px] bottom-[24px]"><img src={rewrite} alt="rewrite" /></button>
       </div>
     </>
   );

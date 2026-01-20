@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import MovieForm from "./MovieForm/MovieForm";
 import MovieList from "./MovieTable/MovieList";
+import EditForm from "./EditForm/EditForm";
 
 function App() {
+  // GET DATA
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState("");
 
@@ -21,8 +23,16 @@ function App() {
     }
   };
 
+  // OPEN AND CLOSE EDIT FORM
+
+  const [open, setOpen] = useState(false);
+  const isOpen = () => setOpen(true);
+  const isClosed = () => setOpen(false);
+
   useEffect(() => {
     fetchData();
+    isOpen();
+    isClosed();
   }, []);
 
   return (
@@ -30,10 +40,11 @@ function App() {
       <MovieForm fetchData={fetchData} />
       <div>{error}</div>
       <section className="flex flx-wrap gap-2.5 p-10 pt-20">
-      {movies.map((movies) => (
-        <MovieList movies={movies} fetchData={fetchData} key={movies.id} />
-      ))}
+        {movies.map((movies) => (
+          <MovieList movies={movies} fetchData={fetchData} isOpen={isOpen} key={movies.id} />
+        ))}
       </section>
+      {open ? <EditForm /> : null}
     </>
   );
 }

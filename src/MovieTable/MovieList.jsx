@@ -1,9 +1,9 @@
 import MovieTable from "./Movietable";
 
-function MovieList({ movies, fetchData }) {
+function MovieList({ movies, fetchData, isOpen }) {
   return (
     <>
-      <MovieTable movies={movies} fetchData={fetchData} key={movies.id} />
+      <MovieTable movies={movies} fetchData={fetchData} isOpen={isOpen} key={movies.id} />
     </>
   );
 }
