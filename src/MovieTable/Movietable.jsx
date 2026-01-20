@@ -1,8 +1,8 @@
 import x from "../assets/close.png";
+import rewrite from "../assets/rewrite.png";
 
 function MovieTable({ movies, fetchData }) {
-
- // DELETE
+  // DELETE
   const deleteData = async (id) => {
     try {
       const requestOptions = {
@@ -11,7 +11,7 @@ function MovieTable({ movies, fetchData }) {
 
       const response = await fetch(
         "http://localhost:3000/movies/" + id,
-        requestOptions
+        requestOptions,
       );
       if (response.ok) {
         console.log("data deleted");
@@ -46,9 +46,14 @@ function MovieTable({ movies, fetchData }) {
           <p>{movies.Rating}</p>
         </div>
         {/* DELETE BUTTON */}
-        <button type="button" className="relative left-[160px]" onClick={() => deleteData(movies.id)}>
+        <button
+          type="button"
+          className="relative left-[160px]"
+          onClick={() => deleteData(movies.id)}
+        >
           <img src={x} alt="x" />
         </button>
+        <button type="button" className="relative left-[120px] bottom-[24px]"><img src={rewrite} alt="rewrite" /></button>
       </div>
     </>
   );
