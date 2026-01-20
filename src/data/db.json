@@ -1,13 +1,24 @@
 {
   "movies": [
     {
-      "id": "cdf9",
-      "title": "ythd",
+      "id": "785f",
+      "title": "Test1",
       "genre": [
-        "Action"
+        "Drama",
+        "Fantasy"
       ],
-      "realeseYear": "2026-01-07",
-      "Rating": "3"
+      "realeseYear": "2025-12-30",
+      "Rating": "4"
+    },
+    {
+      "id": "9d9e",
+      "title": "Test2",
+      "genre": [
+        "Action",
+        "Horror"
+      ],
+      "realeseYear": "2026-01-13",
+      "Rating": "5"
     }
   ]
 }

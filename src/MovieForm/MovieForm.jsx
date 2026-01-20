@@ -11,6 +11,7 @@ function MovieForm({fetchData}) {
       title: "",
       genre: [],
       realeseYear: "",
+      Rating: null,
     },
   });
 
@@ -40,7 +41,7 @@ function MovieForm({fetchData}) {
     <section className="flex flex-wrap justify-center pt-40">
       <form
         onSubmit={handleSubmit(onSumbit)}
-        className="flex flex-row h-[30px] items-baseline-last gap-10"
+        className="flex flex-row h-7.5 items-baseline-last gap-10"
       >
         <div>
           <label htmlFor="title" className="block text-center">

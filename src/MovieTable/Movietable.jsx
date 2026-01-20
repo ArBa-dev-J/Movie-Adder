@@ -26,7 +26,7 @@ function MovieTable({ movies, fetchData, isOpen }) {
 
   return (
     <>
-      <div className="border w-[400px] flex flex-col items-center gap-2 pt-5 pb-5">
+      <div className="border w-100 flex flex-col items-center gap-2 pt-5 pb-5">
         <div>
           <h1 className="text-center">{movies.title}</h1>
         </div>
@@ -53,7 +53,7 @@ function MovieTable({ movies, fetchData, isOpen }) {
         >
           <img src={x} alt="x" />
         </button>
-        <button type="button" onClick={() => isOpen()} className="relative left-[120px] bottom-[24px]"><img src={rewrite} alt="rewrite" /></button>
+        <button type="button" onClick={() => isOpen(movies.id)} className="relative left-[120px] bottom-[24px]"><img src={rewrite} alt="rewrite" /></button>
       </div>
     </>
   );
