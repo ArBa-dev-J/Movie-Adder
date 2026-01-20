@@ -1,0 +1,58 @@
+{
+  "movies": [
+    {
+      "id": "d159",
+      "title": "Test",
+      "genre": [
+        "Drama",
+        "Comedy",
+        "Action",
+        "Horror",
+        "Sci-fi",
+        "Fantasy"
+      ],
+      "realeseYear": "2026-01-06",
+      "Rating": "1"
+    },
+    {
+      "id": "f268",
+      "title": "dasdadsa",
+      "genre": [
+        "Action",
+        "Horror"
+      ],
+      "realeseYear": "2026-01-21",
+      "Rating": "3"
+    },
+    {
+      "id": "5251",
+      "title": "sadadawgvaFCAfeAEfcDAS",
+      "genre": [
+        "Comedy",
+        "Fantasy"
+      ],
+      "realeseYear": "2025-12-29",
+      "Rating": "5"
+    },
+    {
+      "id": "9d1b",
+      "title": "Lord of The Ring: The two towers",
+      "genre": [
+        "Action",
+        "Fantasy"
+      ],
+      "realeseYear": "2001-02-06",
+      "Rating": "5"
+    },
+    {
+      "id": "dc0e",
+      "title": "Star Wars: The return of the jedi",
+      "genre": [
+        "Action",
+        "Sci-fi"
+      ],
+      "realeseYear": "1980-02-13",
+      "Rating": "5"
+    }
+  ]
+}
