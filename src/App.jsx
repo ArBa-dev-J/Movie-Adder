@@ -31,7 +31,7 @@ function App() {
       <div>{error}</div>
       <section className="flex flx-wrap gap-2.5 p-10 pt-20">
       {movies.map((movies) => (
-        <MovieList movies={movies} key={movies.id} />
+        <MovieList movies={movies} fetchData={fetchData} key={movies.id} />
       ))}
       </section>
     </>

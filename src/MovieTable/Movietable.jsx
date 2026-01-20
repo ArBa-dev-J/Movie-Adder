@@ -1,6 +1,29 @@
 import x from "../assets/close.png";
 
-function MovieTable({ movies }) {
+function MovieTable({ movies, fetchData }) {
+
+ // DELETE
+  const deleteData = async (id) => {
+    try {
+      const requestOptions = {
+        method: "DELETE",
+      };
+
+      const response = await fetch(
+        "http://localhost:3000/movies/" + id,
+        requestOptions
+      );
+      if (response.ok) {
+        console.log("data deleted");
+        fetchData();
+      } else {
+        throw new Error("Error");
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   return (
     <>
       <div className="border w-[400px] flex flex-col items-center gap-2 pt-5 pb-5">
@@ -23,7 +46,7 @@ function MovieTable({ movies }) {
           <p>{movies.Rating}</p>
         </div>
         {/* DELETE BUTTON */}
-        <button type="button" className="relative left-[160px]">
+        <button type="button" className="relative left-[160px]" onClick={() => deleteData(movies.id)}>
           <img src={x} alt="x" />
         </button>
       </div>
