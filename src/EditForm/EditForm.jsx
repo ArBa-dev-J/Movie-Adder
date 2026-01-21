@@ -1,33 +1,46 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import x from "../assets/close.png";
 
-function EditForm({ movies }) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    setValue,
-  } = useForm({
+function EditForm({ movies, isClosed, fetchData }) {
+  const { register, handleSubmit, setValue } = useForm({
     defaultValues: {
       title: "",
       genre: [],
       realeseYear: "",
-      Rating: null,
+      Rating: "",
     },
   });
 
   useEffect(() => {
-    setValue("title", movies.title),
+    (setValue("title", movies.title),
       setValue("genre", movies.genre),
       setValue("realeseYear", movies.realeseYear),
-      setValue("Rating", movies.Rating)
+      setValue("Rating", movies.Rating));
   }, []);
 
+  const onSubmit = async (data) => {
+    // try {
+    //   const requestOptions = {
+    //     method: "PATCH",
+    //     headers: { "Content-type": "application/json" },
+    //     body: JSON.stringify(data),
+    //   };
 
-  const onSubmit = (data) => {
-    console.log(data);
-  }
+    //   const response = await fetch (
+    //     `http://localhost:3000/movies/${movies.id}`,
+    //     requestOptions
+    //   );
+
+    //   if (response.ok) {
+    //     (isClosed(), fetchData());
+    //   } else {
+    //      throw new Error(`Error! Failed to update! ${response.status}`);
+    //   }
+    // } catch (error){
+    //   alert(error.message);
+    // }
+  };
 
   return (
     <>
@@ -37,68 +50,132 @@ function EditForm({ movies }) {
           className="flex flex-row justify-center h-7.5 items-baseline-last gap-10"
         >
           <div>
-            <label htmlFor="title" {...register("title")} className="block text-center">
+            <label htmlFor="title" className="block text-center">
               Movie Title
             </label>
-            <input type="text" name="title" className="border mr-2.5" />
+            <input
+              type="text"
+              name="title"
+              {...register("title")}
+              className="border mr-2.5"
+            />
           </div>
           {/*MOVIE GENRE*/}
           <div>
             <div className="border flex gap-2.5">
               <div>
-                <input type="checkbox" {...register("genre")} name="genre" value="Drama" />
+                <input
+                  type="checkbox"
+                  {...register("genre")}
+                  name="genre"
+                  value="Drama"
+                />
                 <label htmlFor="rating">Drama</label>
               </div>
               <div>
-                <input type="checkbox" {...register("genre")} name="genre" value="Comedy" />
+                <input
+                  type="checkbox"
+                  {...register("genre")}
+                  name="genre"
+                  value="Comedy"
+                />
                 <label htmlFor="rating">Comedy</label>
               </div>
               <div>
-                <input type="checkbox" {...register("genre")} name="genre" value="Action" />
+                <input
+                  type="checkbox"
+                  {...register("genre")}
+                  name="genre"
+                  value="Action"
+                />
                 <label htmlFor="rating">Action</label>
               </div>
               <div>
-                <input type="checkbox" {...register("genre")} name="genre" value="Horror" />
+                <input
+                  type="checkbox"
+                  {...register("genre")}
+                  name="genre"
+                  value="Horror"
+                />
                 <label htmlFor="rating">Horror</label>
               </div>
               <div>
-                <input type="checkbox" {...register("genre")} name="genre" value="Sci-fi" />
+                <input
+                  type="checkbox"
+                  {...register("genre")}
+                  name="genre"
+                  value="Sci-fi"
+                />
                 <label htmlFor="rating">Sci-fi</label>
               </div>
               <div>
-                <input type="checkbox" {...register("genre")} name="genre" value="Fantasy" />
+                <input
+                  type="checkbox"
+                  {...register("genre")}
+                  name="genre"
+                  value="Fantasy"
+                />
                 <label htmlFor="rating">Fantasy</label>
               </div>
             </div>
           </div>
           {/*MOVIE REALESE DATE*/}
           <div>
-            <label htmlFor="date"  {...register("realeseYear")} className="block">
+            <label htmlFor="date" className="block">
               Movie release year
             </label>
-            <input type="date" name="date" className="border mr-2.5" />
+            <input
+              type="date"
+              {...register("realeseYear")}
+              className="border mr-2.5"
+            />
           </div>
           {/*MOVIE RATING*/}
           <div>
             <div className="border flex gap-2.5">
               <div>
-                <input type="radio" {...register("Rating")} name="rating" value="1" />
+                <input
+                  type="radio"
+                  {...register("Rating")}
+                  name="rating"
+                  value="1"
+                />
                 <label htmlFor="rating">1</label>
               </div>
               <div>
-                <input type="radio" {...register("Rating")} name="rating" value="2" />
+                <input
+                  type="radio"
+                  {...register("Rating")}
+                  name="rating"
+                  value="2"
+                />
                 <label htmlFor="rating">2</label>
               </div>
               <div>
-                <input type="radio" {...register("Rating")} name="rating" value="3" />
+                <input
+                  type="radio"
+                  {...register("Rating")}
+                  name="rating"
+                  value="3"
+                />
                 <label htmlFor="rating">3</label>
               </div>
               <div>
-                <input type="radio" {...register("Rating")} name="rating" value="4" />
+                <input
+                  type="radio"
+                  {...register("Rating")}
+                  name="rating"
+                  value="4"
+                />
                 <label htmlFor="rating">4</label>
               </div>
               <div>
-                <input type="radio" {...register("Rating")} name="rating" value="5" />
+                <input
+                  type="radio"
+                  {...register("Rating")}
+                  name="rating"
+                  value="5"
+                />
                 <label htmlFor="rating">5</label>
               </div>
             </div>
@@ -108,6 +185,11 @@ function EditForm({ movies }) {
             <input type="submit" className="border" value="Update" />
           </div>
         </form>
+        <div className="text-right relative bottom-40 left-30">
+          <button type="button" onClick={isClosed}>
+            <img src={x} alt="x" />
+          </button>
+        </div>
       </section>
     </>
   );

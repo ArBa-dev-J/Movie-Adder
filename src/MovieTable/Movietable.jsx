@@ -53,7 +53,7 @@ function MovieTable({ movies, fetchData, isOpen }) {
         >
           <img src={x} alt="x" />
         </button>
-        <button type="button" onClick={() => isOpen(movies.id)} className="relative left-[120px] bottom-[24px]"><img src={rewrite} alt="rewrite" /></button>
+        <button type="button" onClick={() => isOpen()} className="relative left-[120px] bottom-[24px]"><img src={rewrite} alt="rewrite" /></button>
       </div>
     </>
   );

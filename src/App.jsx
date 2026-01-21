@@ -45,7 +45,7 @@ function App() {
         ))}
       </section>
       {movies.map((movies) => (
-        open ? <EditForm movies={movies} fetchData={fetchData} key={movies.id} /> : null
+        open ? <EditForm movies={movies} fetchData={fetchData} isClosed={isClosed} key={movies.id} /> : null
       ))}
     </>
   );

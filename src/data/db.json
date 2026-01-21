@@ -1,24 +1,23 @@
 {
   "movies": [
     {
-      "id": "785f",
-      "title": "Test1",
+      "id": "17b8",
+      "title": "test",
       "genre": [
         "Drama",
-        "Fantasy"
+        "Comedy"
       ],
-      "realeseYear": "2025-12-30",
-      "Rating": "4"
+      "realeseYear": "2026-01-22",
+      "Rating": "1"
     },
     {
-      "id": "9d9e",
-      "title": "Test2",
+      "id": "08b8",
+      "title": "tet2",
       "genre": [
-        "Action",
-        "Horror"
+        "Fantasy"
       ],
-      "realeseYear": "2026-01-13",
-      "Rating": "5"
+      "realeseYear": "2026-01-06",
+      "Rating": "2"
     }
   ]
 }
