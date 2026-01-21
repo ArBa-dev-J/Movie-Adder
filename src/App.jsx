@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import MovieForm from "./MovieForm/MovieForm";
 import MovieList from "./MovieTable/MovieList";
+import { getAllData } from "./services/get";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -8,13 +9,13 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:3000/movies");
+      // const response = await fetch("http://localhost:3000/movies");
 
-      if (!response.ok) {
-        throw new Error(`Error! Response status: ${response.status}`);
-      }
+      // if (!response.ok) {
+      //   throw new Error(`Error! Response status: ${response.status}`);
+      // }
 
-      const results = await response.json();
+      // const results = await response.json();
       setMovies(results);
     } catch (error) {
       setError(error.message);
