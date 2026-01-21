@@ -4,18 +4,14 @@ import MovieList from "./MovieTable/MovieList";
 import EditForm from "./EditForm/EditForm";
 
 function App() {
-  // GET DATA
   const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [open, setOpen] = useState(false);
   const [error, setError] = useState("");
 
   const fetchData = async () => {
     try {
       const response = await fetch("http://localhost:3000/movies");
-
-      if (!response.ok) {
-        throw new Error(`Error! Response status: ${response.status}`);
-      }
-
       const results = await response.json();
       setMovies(results);
     } catch (error) {
@@ -23,30 +19,36 @@ function App() {
     }
   };
 
-  // OPEN AND CLOSE EDIT FORM
-
-  const [open, setOpen] = useState(false);
-  const isOpen = () => setOpen(true);
-  const isClosed = () => setOpen(false);
-
   useEffect(() => {
     fetchData();
-    isOpen();
-    isClosed();
   }, []);
 
   return (
     <>
       <MovieForm fetchData={fetchData} />
       <div>{error}</div>
-      <section className="flex flx-wrap gap-2.5 p-10 pt-20">
-        {movies.map((movies) => (
-          <MovieList movies={movies} fetchData={fetchData} isOpen={isOpen} key={movies.id} />
+
+      <section className="flex flex-wrap gap-2.5 p-10 pt-20">
+        {movies.map((movie) => (
+          <MovieList
+            key={movie.id}
+            movies={movie}
+            fetchData={fetchData}
+            isOpen={() => {
+              setSelectedMovie(movie);
+              setOpen(true);
+            }}
+          />
         ))}
       </section>
-      {movies.map((movies) => (
-        open ? <EditForm movies={movies} fetchData={fetchData} isClosed={isClosed} key={movies.id} /> : null
-      ))}
+
+      {open && selectedMovie && (
+        <EditForm
+          movies={selectedMovie}
+          fetchData={fetchData}
+          isClosed={() => setOpen(false)}
+        />
+      )}
     </>
   );
 }

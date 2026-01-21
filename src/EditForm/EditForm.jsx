@@ -17,7 +17,7 @@ function EditForm({ movies, isClosed, fetchData }) {
       setValue("genre", movies.genre),
       setValue("realeseYear", movies.realeseYear),
       setValue("Rating", movies.Rating));
-  }, []);
+  }, [movies, setValue]);
 
   const onSubmit = async (data) => {
     try {
