@@ -20,26 +20,26 @@ function EditForm({ movies, isClosed, fetchData }) {
   }, []);
 
   const onSubmit = async (data) => {
-    try {
-      const requestOptions = {
-        method: "PATCH",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(data),
-      };
+    // try {
+    //   const requestOptions = {
+    //     method: "PATCH",
+    //     headers: { "Content-type": "application/json" },
+    //     body: JSON.stringify(data),
+    //   };
 
-      const response = await fetch (
-        `http://localhost:3000/movies/${movies.id}`,
-        requestOptions
-      );
+    //   const response = await fetch (
+    //     `http://localhost:3000/movies/${movies.id}`,
+    //     requestOptions
+    //   );
 
-      if (response.ok) {
-        (isClosed(), fetchData());
-      } else {
-         throw new Error(`Error! Failed to update! ${response.status}`);
-      }
-    } catch (error){
-      alert(error.message);
-    }
+    //   if (response.ok) {
+    //     (isClosed(), fetchData());
+    //   } else {
+    //      throw new Error(`Error! Failed to update! ${response.status}`);
+    //   }
+    // } catch (error){
+    //   alert(error.message);
+    // }
   };
 
   return (
@@ -126,7 +126,7 @@ function EditForm({ movies, isClosed, fetchData }) {
             </label>
             <input
               type="date"
-               {...register("realeseYear")}
+              {...register("realeseYear")}
               className="border mr-2.5"
             />
           </div>
@@ -137,7 +137,7 @@ function EditForm({ movies, isClosed, fetchData }) {
                 <input
                   type="radio"
                   {...register("Rating")}
-                  name="Rating"
+                  name="rating"
                   value="1"
                 />
                 <label htmlFor="rating">1</label>
@@ -146,7 +146,7 @@ function EditForm({ movies, isClosed, fetchData }) {
                 <input
                   type="radio"
                   {...register("Rating")}
-                  name="Rating"
+                  name="rating"
                   value="2"
                 />
                 <label htmlFor="rating">2</label>
@@ -155,16 +155,16 @@ function EditForm({ movies, isClosed, fetchData }) {
                 <input
                   type="radio"
                   {...register("Rating")}
-                  name="Rating"
+                  name="rating"
                   value="3"
                 />
-                <label htmlFor="Rating">3</label>
+                <label htmlFor="rating">3</label>
               </div>
               <div>
                 <input
                   type="radio"
                   {...register("Rating")}
-                  name="Rating"
+                  name="rating"
                   value="4"
                 />
                 <label htmlFor="rating">4</label>
@@ -173,7 +173,7 @@ function EditForm({ movies, isClosed, fetchData }) {
                 <input
                   type="radio"
                   {...register("Rating")}
-                  name="Rating"
+                  name="rating"
                   value="5"
                 />
                 <label htmlFor="rating">5</label>
